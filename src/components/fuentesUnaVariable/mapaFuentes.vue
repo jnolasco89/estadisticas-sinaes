@@ -1,17 +1,22 @@
 <template>
   <v-container grid-list-md>
     <v-layout align-center justify-space-between row>
+      
       <v-flex md6 lg6 xl6>
+        <mapa-interactivo></mapa-interactivo>
+        <!--
         <v-container fluid>
           <v-layout row>
             <v-flex xs12>
               <v-card dark flat color="red lighten-1">
-                <v-card-text>1</v-card-text>
+                <mapa-interactivo></mapa-interactivo>
               </v-card>
             </v-flex>
           </v-layout>
         </v-container>
+        -->
       </v-flex>
+      
       <v-flex md6 lg6 xl6>
         <v-container fluid>
           <v-layout row align-center justify-center>

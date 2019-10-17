@@ -1,5 +1,6 @@
 <template>
   <div>
+    
     <controles-fuentes></controles-fuentes>
 
     <v-container grid-list-md>
@@ -18,6 +19,7 @@
     </v-container>
 
     <mapa-fuentes></mapa-fuentes>
+    
     <tablas-fuentes></tablas-fuentes>
   </div>
 </template>

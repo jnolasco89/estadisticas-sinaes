@@ -2,7 +2,7 @@
   <div id="app">
     <v-app>
       <!-- ================ BARRA DE NAVEGACION ================ -->
-      <v-toolbar>
+      <v-toolbar color="primary" dark>
         <v-toolbar-side-icon></v-toolbar-side-icon>
         <v-toolbar-title>SINAES</v-toolbar-title>
         <v-spacer></v-spacer>
@@ -43,7 +43,9 @@
 
       <!-- ================ CONTENIDO ================ -->
       <v-content>
+        
           <vista-fuentes-una-variable></vista-fuentes-una-variable>
+        
       </v-content>
 
       <!-- ================ PIE DE PAGINA ================ -->
