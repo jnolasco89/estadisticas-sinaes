@@ -18,12 +18,19 @@ export default class Mapa {
 
     ini() {
         //Configurando las dimensiones para el mapa-----
-            
+        /*
             document.getElementById(this.idSvg).setAttribute("style", "width:100%;height:100%;");
             this.pintar();
             this.iniEventosDeTransformacion();
             this.escala = new Escala("lienzo-escala", "escala_svg", 5, ["yellow", "green", "red", "black", "grey", "green"]);
-       
+            */
+        document.getElementById(this.idSvg).addEventListener("load", () => {
+            document.getElementById(this.idSvg).setAttribute("style", "width:100%;height:100%;");
+            this.pintar();
+            this.iniEventosDeTransformacion();
+            this.escala = new Escala("lienzo-escala", "escala_svg", 5, ["yellow", "green", "red", "black", "grey", "green"]);
+        });
+
     }
 
     pintar() {
@@ -73,18 +80,18 @@ export default class Mapa {
                 tooltip.style.left = (x + 5) + "px";
                 tooltip.style.top = (y - tooltip.offsetHeight - 10) + "px";
                 */
-               var tooltip = document.getElementById("tooltip-mapa");
+                var tooltip = document.getElementById("tooltip-mapa");
 
-               var x = ev.pageX;
-               var y = ev.pageY;
-               
-               var html = "Texto aquí.";
+                var x = ev.pageX;
+                var y = ev.pageY;
 
-               tooltip.querySelector(".cuerpoToolTip").innerHTML = html;
+                var html = "Texto aquí.";
 
-               //tooltip.style.display="block";
-               tooltip.style.left = (x + 5) + "px";
-               tooltip.style.top = (y - tooltip.offsetHeight - 10) + "px";
+                tooltip.querySelector(".cuerpoToolTip").innerHTML = html;
+
+                //tooltip.style.display="block";
+                tooltip.style.left = (x + 5) + "px";
+                tooltip.style.top = (y - tooltip.offsetHeight - 10) + "px";
             };
 
             path.onmouseenter = function () {

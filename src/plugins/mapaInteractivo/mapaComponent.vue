@@ -24,9 +24,16 @@ var mapa = new Mapa("lienzo-mapa", "escala-mapa");
 export default {
   name: "mapaComponent",
   mounted() {
+    
+    this.$nextTick(function() {
+       mapa.ini(); 
+    });
+    
+    /*
     window.addEventListener("load", () => {
       mapa.ini();
     });
+    */
     /*
     this.$nextTick(() => {
       mapa.ini();

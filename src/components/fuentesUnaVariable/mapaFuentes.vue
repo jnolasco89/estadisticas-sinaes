@@ -22,34 +22,23 @@
           <v-layout row align-center justify-center>
             <v-flex xs4 order-md1>
                <doughnut-chart 
-               :chartdata="chartdata" 
-               :options="options" 
                ></doughnut-chart>
             </v-flex>
             <v-flex xs4 order-md2>
               <doughnut-chart 
-               :chartdata="chartdata" 
-               :options="options" 
                ></doughnut-chart>
             </v-flex>
             <v-flex xs4 order-md3>
-              <doughnut-chart 
-               :chartdata="chartdata" 
-               :options="options" 
+              <doughnut-chart
                ></doughnut-chart>
             </v-flex>
           </v-layout>
-          <v-layout row>
+          <v-layout row align-center justify-center>
             <v-flex xs6 order-md1>
-              <doughnut-chart 
-               :chartdata="chartdata" 
-               :options="options" 
-               ></doughnut-chart>
+              <doughnut-chart></doughnut-chart>
             </v-flex>
             <v-flex xs6 order-md2>
               <doughnut-chart 
-               :chartdata="chartdata" 
-               :options="options" 
                ></doughnut-chart>
             </v-flex>
           </v-layout>
@@ -60,7 +49,7 @@
 </template>
 <script>
 import Consultas from '../../servicios/consultas'
-import DoughnutChart from '../Graficos/doughnut'
+import DoughnutChart from '../Graficos/doughnutApexChart'
 
 const consultas=new Consultas();
 var data=consultas.getDataDonut();
