@@ -48,7 +48,10 @@
                         <td :rowspan="zona.anios.length*2" v-if="index==0">{{zona.nombre}}</td>
                         <td rowspan="2">
                           {{anio.anio}}
+                          <!--
                           <vertical-bar-chart></vertical-bar-chart>
+                          -->
+                          <loader @intersect="intersected"></loader>
                         </td>
                         <template v-for="(resumen,index) in anio.resumenSubtemas">
                           <td
@@ -183,8 +186,9 @@
 </template>-->
 <script>
 import Consultas from "../../servicios/consultas";
-import VerticalBarChart from "../Graficos/vertical-bar-chart";
+import VerticalBarChart from "../Graficos/horizontal-bar-chart";
 import DoughnutChart from "../Graficos/doughnutApexChart";
+import Loader from './loader.vue'
 
 const consultas = new Consultas();
 var data = consultas.getDataDonut();
@@ -194,7 +198,8 @@ export default {
   props: ["data"],
   components: {
     VerticalBarChart,
-    DoughnutChart
+    DoughnutChart,
+    Loader
   },
   data() {
     return {
@@ -205,6 +210,9 @@ export default {
     };
   },
   methods: {
+    intersected:function(){
+      alert("interseptado");
+    },
     getVariablesAnio: function(anio) {},
     calcularRowSpan: function(grupo) {
       let rowspan = 1;

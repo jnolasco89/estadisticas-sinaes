@@ -1,28 +1,69 @@
+<template>
+  <apexchart type="bar" height="350" :options="chartOptions" :series="seriesChart" />
+</template>
 <script>
-import { HorizontalBar } from 'vue-chartjs'
+import apexchart from "vue-apexcharts";
 
 export default {
-  extends: HorizontalBar,
-  data() {
-    return {
-      chartdata: {
-        labels: ["January", "February"],
-        datasets: [
-          {
-            label: "Data One",
-            backgroundColor: "#f87979",
-            data: [40, 20]
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false
-      }
-    };
+  name: "horizontal-bar-chart",
+  props: ["categorias","series"],
+  components: {
+    apexchart
   },
-  mounted() {
-    this.renderChart(this.chartdata, this.options);
+  computed: {
+    chartOptions: function() {
+      return {
+        chart: {
+          stacked: true
+        },
+        plotOptions: {
+          bar: {
+            horizontal: true
+          }
+        },
+        stroke: {
+          width: 1,
+          colors: ["#fff"]
+        },
+
+        title: {
+          text: ""
+        },
+        xaxis: {
+          categories: this.categorias,
+          labels: {
+            formatter: function(val) {
+              //return val + "K";
+              return val;
+            }
+          }
+        },
+        yaxis: {
+          title: {
+            text: undefined
+          }
+        },
+        tooltip: {
+          y: {
+            formatter: function(val) {
+              return val + "K";
+            }
+          }
+        },
+        fill: {
+          opacity: 1
+        },
+
+        legend: {
+          position: "top",
+          horizontalAlign: "left",
+          offsetX: 40
+        }
+      };
+    },
+    seriesChart: function() {
+       return this.series;
+    }
   }
 };
 </script>

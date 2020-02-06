@@ -23,14 +23,20 @@
           </v-flex>
         </v-layout>
       </v-container>
+
       <mapa-fuentes v-if="datosCargados"></mapa-fuentes>
+
+<!--
       <tablas-fuentes v-if="datosCargados" v-bind:data="datosConsulta"></tablas-fuentes>
+      -->
+      <tablas-fuentes2 v-if="datosCargados" v-bind:data="datosConsulta"></tablas-fuentes2>
   </div>
 </template>
 <script>
 import ControlesFuentes from "../components/fuentesUnaVariable/controlesFtes";
 import MapaFuentes from "../components/fuentesUnaVariable/mapaFuentes";
 import TablasFuentes from "../components/fuentesUnaVariable/tablasFuentes";
+import TablasFuentes2 from "../components/fuentesUnaVariable/tablasFuentes2"
 import ServiciosEstadisticas from "../servicios/consultas";
 
 const servEst = new ServiciosEstadisticas();
@@ -40,7 +46,8 @@ export default {
   components: {
     ControlesFuentes,
     MapaFuentes,
-    TablasFuentes
+    TablasFuentes,
+    TablasFuentes2
   },
   mounted() {
     let datosURL = servEst.getParametrosURL();
@@ -77,10 +84,6 @@ export default {
       this.datosCargados=true;
       this.nombreTema=temaSeleccionado.CatTempDsc;
       this.datosConsulta=datosEstadisticos;
-      /*
-      console.log(JSON.stringify(datosEstadisticos));
-      alert("Cargar datos");
-      */
     }
   },
   computed: {
